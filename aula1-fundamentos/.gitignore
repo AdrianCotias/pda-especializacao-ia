@@ -1,0 +1,7 @@
+node_modules/
+.env
+.DS_Store
+# config local de MCP com credenciais NÃO vai pro git; o .mcp.json.example vai
+.mcp.json
+# sessões locais do Claude Code
+.claude/settings.local.json

@@ -1,0 +1,9 @@
+{
+  "_comentario": "Copie para .mcp.json (ou rode `claude mcp add context7 -- npx -y @upstash/context7-mcp` que o Claude Code gera isso). Context7 traz documentação atualizada de libs pra dentro da janela de contexto — ataca alucinação na fonte.",
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}

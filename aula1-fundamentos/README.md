@@ -54,6 +54,8 @@ ambiente de coding agent (CLAUDE.md, uma skill, config de MCP) pra você complet
 - Conta no GitHub
 - [Claude Code](https://code.claude.com/docs) instalado e logado com a conta Claude Pro da turma
   (o `GUIA-DO-ALUNO.md` tem o passo a passo de instalação, inclusive Windows)
+- **Windows:** antes de começar, veja a tabela "Terminal: qual usar" no início do
+  `GUIA-DO-ALUNO.md` — ela compara Git Bash, WSL, PowerShell e CMD e diz qual usar hoje
 
 ## Regra da casa
 

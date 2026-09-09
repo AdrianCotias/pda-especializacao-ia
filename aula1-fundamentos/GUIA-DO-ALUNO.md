@@ -7,6 +7,28 @@ Regra: terminal aberto do lado. Travou? Manda o erro no chat, segue em dupla.
 
 ---
 
+## Terminal: qual usar (a maioria da turma está no Windows)
+
+Todo comando deste guia está escrito em **bash** (padrão de macOS/Linux). No Windows, o terminal
+que você abre muda o que funciona. Escolha **antes** de começar:
+
+| opção | o que é | já vem pronto no Windows? | roda os comandos deste guia sem adaptar? |
+|---|---|---|---|
+| **Git Bash** — recomendado pra hoje | terminal bash que instala junto com o Git | não — instala junto do [Git para Windows](https://git-scm.com/download/win) (você vai instalar o git de qualquer jeito) | sim |
+| **WSL (Ubuntu)** | um Linux de verdade dentro do Windows | não — precisa instalar (`wsl --install` no PowerShell **como administrador**, depois reiniciar a máquina) | sim — é o mais parecido com o ambiente da facilitadora, mas dá mais trabalho pra deixar pronto no dia |
+| **PowerShell** | terminal padrão do Windows | sim | parcial — `node`, `npm`, `git` e `claude` funcionam, mas comandos tipo `curl ... \| bash` não. Use o bloco marcado **"Windows (PowerShell)"** quando ele aparecer |
+| **CMD (Prompt de Comando)** | terminal antigo do Windows | sim | evite — é o que mais quebra com os comandos daqui |
+
+**Recomendação:** instale o Git (se ainda não tiver) e abra o **Git Bash** — ele aparece no menu
+Iniciar como "Git Bash" depois da instalação. Se você usa VS Code, dá pra deixá-lo como terminal
+padrão: terminal integrado → seta ao lado do `+` → "Git Bash". Assim você segue o guia de ponta a
+ponta sem trocar um comando sequer.
+
+Sem tempo de configurar WSL hoje? Deixa pra depois da aula — Git Bash resolve tudo que você
+precisa na aula 1. Mac e Linux: use o terminal de sempre, os comandos já estão no seu idioma.
+
+---
+
 ## Antes da aula (5 min)
 
 ```bash
@@ -92,7 +114,9 @@ Abra `exemplos/vibe-coding.js` (ou o código trazido por um colega).
 
 ## PAUSA — instala o Claude Code (7 min)
 
-**macOS / Linux / WSL**
+Use o comando do terminal que você escolheu na seção acima.
+
+**macOS, Linux, Git Bash ou WSL**
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
@@ -100,14 +124,14 @@ curl -fsSL https://claude.ai/install.sh | bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-**Windows (PowerShell)**
+**Windows (PowerShell)** — só se você não está no Git Bash nem no WSL
 
 ```powershell
 irm https://claude.ai/install.ps1 | iex
 ```
 
-> Windows: se puder, use o WSL (Ubuntu). O Claude Code funciona nativo no Windows, mas o WSL evita
-> 90% dos problemas de path e de `npm`.
+> Depois de instalado, o Claude Code fica disponível em qualquer terminal — não precisa reinstalar
+> se trocar do PowerShell pro Git Bash no meio da aula.
 
 Depois:
 
@@ -243,4 +267,8 @@ A outra metade está em [`ATIVIDADE.md`](./ATIVIDADE.md).
 | login abre navegador mas não volta | copia a URL, abre em outra aba, cola o código de volta no terminal |
 | `/mcp` não mostra context7 | roda `claude mcp list` fora do Claude Code; confere se rodou o `add` dentro da pasta do projeto |
 | agente editou um teste | `git checkout tests/` e diz pra ele: "não edite tests/, corrija src/" — e adiciona a regra no CLAUDE.md |
-| Windows: `npx` não achado | instala Node pelo instalador oficial ou usa WSL |
+| Windows: `npx` ou `node` não achado | instala o Node pelo instalador oficial (<https://nodejs.org>) e reabre o terminal; ainda não achou? troca pro Git Bash ou WSL |
+| Windows (PowerShell): "não é possível carregar o arquivo … porque a execução de scripts foi desabilitada" | roda `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, confirma e tenta o comando de novo |
+| Windows: não acho o "Git Bash" no menu Iniciar | reinstale o [Git](https://git-scm.com/download/win) sem desmarcar a opção "Git Bash Here"; ou procure "Git Bash" na busca do Windows |
+| Windows: `wsl --install` não faz nada ou dá erro | precisa de Windows 10 (build 2004+) ou Windows 11 e privilégio de administrador; sem isso (ou sem tempo), use o Git Bash em vez do WSL |
+| comandos com `curl ... \| bash` não funcionam no meu terminal | isso só roda em bash (Git Bash, WSL, macOS, Linux); no PowerShell, use o bloco equivalente marcado "Windows (PowerShell)" |
